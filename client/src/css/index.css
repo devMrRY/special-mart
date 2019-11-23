@@ -1,0 +1,308 @@
+body {
+    min-height: 100%;
+  }
+  .stepperstep {
+    background: white;
+    padding: 20px;
+    height: 20vh;
+    display: flex;
+    justify-content: space-around;
+  }
+  .stepperstep > span {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    font-size: 15px;
+    color: #fff;
+    line-height: 25px;
+    text-align: center;
+  }
+  .stepperstep > span > p {
+    color: grey;
+    font-weight: bold;
+    display: flex;
+    font-size: 10px;
+    line-height: 15px;
+  }
+  .stepperform {
+    background: white;
+    height: 72%;
+    justify-content: center;
+  }
+  
+  .stepperform > h2 {
+    text-shadow: 2px 2px 4px #000000;
+  }
+  .navbarcontainer {
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
+  }
+  .navbar > a {
+    color: yellowgreen;
+    font-weight: bold;
+  }
+  .loginbtn {
+    width: 20%;
+  }
+  
+  .flex-row > span > a {
+    color: black;
+    float: right;
+    display: flex;
+  }
+  
+  .bg {
+    background-image: url("../img/background.jpg");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .innerdiv {
+    background-color: rgba(0, 0, 0, 0.3);
+    min-height: 100vh;
+    height: 100%;
+  }
+  
+  .mernheading {
+    font-size: 100px;
+    font-weight: bold;
+    font-family: cursive;
+    position: fixed;
+    left: 25%;
+    top: 10%;
+    z-index: 99;
+    animation: heading;
+    animation-duration: 4s;
+    color: yellow;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .logo > img {
+    width: 250px;
+    position: fixed;
+    left: 40%;
+    top: 40%;
+    animation: logo;
+    animation-duration: 4s;
+  }
+  
+  @keyframes heading {
+    from {
+      color:red;
+      font-size: 0px;
+    }
+    to {
+      color:yellow;
+      font-size: 100px;
+    }
+  }
+  
+  @keyframes logo {
+    from {
+      width: 0px;
+      left: 0%;
+      top: 40%;
+    }
+    to {
+      width: 250px;
+      left: 40%;
+      top: 40%;
+    }
+  }
+  
+  .signinbg,
+  .signupbg {
+    background: whitesmoke;
+    padding: 10px;
+    z-index: 1000;
+    position: fixed;
+    width:30%
+  }
+  
+  .signinbg > input {
+    color: white;
+  }
+  
+  .col-md-4 {
+    padding: 1rem;
+    background-color: #33b5e5;
+    border: 2px solid #fff;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .acc-btn {
+    width: 100%;
+    background: lightcoral;
+    color: white;
+    padding: 7px;
+  }
+  .searchbar {
+    width: 100%;
+  }
+  
+  .content > button {
+    width: 90%;
+    border: none;
+    color: black;
+    font-weight: bold;
+  }
+  .content > input {
+    border: lightgrey solid 0.1px;
+  }
+  .content > button:hover {
+    background: lightblue;
+  }
+  .content > button:active {
+    background: lightblue;
+  }
+  .content > input {
+    width: 10%;
+  }
+  
+  .btnlist {
+    display: flex;
+    flex-direction: row;
+    max-height: 100px;
+    overflow: auto;
+  }
+  .proddetails {
+    width: 80%;
+  }
+  .edbtn {
+    width: 15%;
+  }
+  .edbtn > button {
+    margin: 5px;
+    background: transparent;
+    border: none;
+  }
+  .MDBListGroup{
+    width: 70%;
+  }
+  
+  @media (max-width: 900px) {
+    .mernheading {
+      font-size: 70px;
+    }
+    .loginbtn {
+      width: 25%;
+    }
+    .proddetails {
+      width: 70%;
+      font-size: 12px;
+    }
+    .edbtn{
+      width: auto;
+    }
+    .signinbg,
+    .signupbg {
+    width:45%
+  }
+  }
+  
+  @media (max-width: 600px) {
+    .mernheading {
+      font-size: 50px;
+    }
+    .loginbtn {
+      width: 35%;
+    }
+    .logo > img {
+      width: 200px;
+      position: fixed;
+      left: 30%;
+      top: 30%;
+    }
+    .MDBListGroup{
+      width: 100%;
+    }
+    .proddetails {
+      width: 60%;
+      font-size: 12px;
+    }
+    .edbtn{
+      width: auto;
+    }
+    .signinbg,
+    .signupbg {
+    width:65%
+  }
+    @keyframes heading {
+      from {
+        color:red;
+        font-size: 0px;
+      }
+      to {
+        color:yellow;
+        font-size: 50px;
+      }
+    }
+  
+    @keyframes logo {
+      from {
+        width: 0px;
+        left: 0%;
+        top: 30%;
+      }
+      to {
+        width: 200px;
+        left: 30%;
+        top: 30%;
+      }
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .mernheading {
+      font-size: 35px;
+    }
+    .loginbtn {
+      width: 45%;
+    }
+    .logo > img {
+      width: 150px;
+      position: fixed;
+      left: 30%;
+      top: 30%;
+    }
+    .proddetails {
+      width: 50%;
+      font-size: 12px;
+    }
+    .edbtn{
+      width: auto;
+    }
+    .signinbg,
+    .signupbg {
+    width:85%
+  }
+    @keyframes heading {
+      from {
+        color:red;
+        font-size: 0px;
+      }
+      to {
+        color:yellow;
+        font-size: 35px;
+      }
+    }
+  
+    @keyframes logo {
+      from {
+        width: 0px;
+        left: 0%;
+        top: 30%;
+      }
+      to {
+        width: 150px;
+        left: 30%;
+        top: 30%;
+      }
+    }
+  }
+  
