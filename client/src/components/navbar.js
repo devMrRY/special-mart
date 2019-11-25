@@ -6,65 +6,58 @@ import Signup from "./signup";
 import { connect } from "react-redux";
 import { LogOut } from "../actions/auth";
 import Cookie from "js-cookie";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
 class NavBar extends Component {
-  state = { form: null, buttons: null };
+  state = { form: "", buttons: null, logout: false };
 
   setform = () => {
+    console.log('setform')
     this.setState({ form: null });
   };
 
   showbutton = () => {
     if (Cookie.get("token") === undefined) {
-      this.setState({
-        buttons: (
-          <React.Fragment>
-            <Button
-              onClick={e => {
-                this.setState({ form: <Signup setform={this.setform} /> });
-              }}
-              color="inherit"
-            >
-              SignUp
-            </Button>
-            <Button
-              onClick={e =>
-                this.setState({ form: <Signin setform={this.setform} /> })
-              }
-              color="inherit"
-            >
-              Login
-            </Button>
-          </React.Fragment>
-        )
-      });
+      return (
+        <React.Fragment>
+          <Button
+            onClick={e => {
+              this.setState({ form: <Signup setform={this.setform} /> });
+            }}
+            color="inherit"
+          >
+            SignUp
+          </Button>
+          <Button
+            onClick={e =>
+              this.setState({ form: <Signin setform={this.setform} /> })
+            }
+            color="inherit"
+          >
+            Login
+          </Button>
+        </React.Fragment>
+      );
     } else {
-      this.setState({
-        buttons: (
-          <React.Fragment>
-            <a href="/dashboard">
-              <Button style={{ color: "white" }}>dashboard</Button>
-            </a>
-            <Button
-              onClick={e => {
-                this.props.LogOut();
-                Cookie.remove("token");
-                this.props.history.push("/");
-              }}
-              color="inherit"
-            >
-              LogOut
-            </Button>
-          </React.Fragment>
-        )
-      });
+      return (
+        <React.Fragment>
+          <a href="/dashboard">
+            <Button style={{ color: "white" }}>dashboard</Button>
+          </a>
+          <Button
+            onClick={e => {
+              this.props.LogOut();
+              Cookie.remove("token");
+              this.props.history.push("/");
+            }}
+            color="inherit"
+          >
+            LogOut
+          </Button>
+        </React.Fragment>
+      );
     }
   };
-
-  componentDidMount() {
-    this.showbutton();
-  }
 
   render() {
     return (
@@ -72,9 +65,9 @@ class NavBar extends Component {
         <AppBar position="static">
           <div className="navbarcontainer">
             <div className="navbar">
-              <a href="/">Mern-Mart</a>
+              <Link to="/">Mern-Mart</Link>
             </div>
-            <div className="loginbtn">{this.state.buttons}</div>
+            <div className="loginbtn">{this.showbutton()}</div>
           </div>
         </AppBar>
         {this.state.form}

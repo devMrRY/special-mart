@@ -18,7 +18,7 @@ class Dashboard extends Component {
   state = { productlist: [], loading: false };
 
   componentWillMount = async () => {
-    this.props.dashboard();
+
     this.setState({ productlist: this.props.product_list });
   };
 
@@ -60,6 +60,7 @@ class Dashboard extends Component {
   };
 
   render() {
+    this.props.dashboard();
     return (
       <React.Fragment>
         <MDBContainer>

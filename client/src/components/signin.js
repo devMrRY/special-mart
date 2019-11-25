@@ -12,17 +12,19 @@ import {
 } from "mdbreact";
 import { connect } from "react-redux";
 import { SignIn } from "../actions/auth";
+import { withRouter } from "react-router-dom";
 
 class Signin extends Component {
   state = {
     modal: true,
     email: "",
     password: ""
+    // success:true
   };
 
-  onFormSubmit = (e) => {
+  onFormSubmit = e => {
     e.preventDefault();
-    const {email, password}=this.state;
+    const { email, password } = this.state;
     this.props.SignIn(email, password);
   };
 
@@ -30,10 +32,17 @@ class Signin extends Component {
     this.setState({
       modal: !this.state.modal
     });
-    this.props.setform();
   };
 
+  // navigate=()=>{
+  //   if(this.props.res==="successfully logged in" && this.state.success){
+  //     this.props.history.push('/dashboard');
+  //     this.setState({success:false})
+  //   }
+  // }
+
   render() {
+    // {this.navigate()}
     return (
       <MDBContainer>
         <MDBModal isOpen={this.state.modal} toggle={this.toggle()} centered>
@@ -91,4 +100,5 @@ const mapstatetoprops = state => {
     res: state.signin
   };
 };
-export default connect(mapstatetoprops, { SignIn })(Signin);
+
+export default connect(mapstatetoprops, { SignIn })(withRouter(Signin));

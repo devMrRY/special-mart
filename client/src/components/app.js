@@ -11,6 +11,7 @@ import Edit from './edit';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
+import  NOTFOUND  from "./notfound";
 
 const mytoken = Cookie.get("token");
 Axios.defaults.headers.common["Authorization"] = `${mytoken}`;
@@ -26,6 +27,7 @@ const App = () => {
             <ProtectedRoute path="/dashboard" exact component={Dashboard} />
             <ProtectedRoute path="/addproduct" exact component={StepperForm} />
             <ProtectedRoute path="/edit/:product_id" exact component={Edit} />
+            <Route path="*" component={NOTFOUND} />
           </Switch>
         </BrowserRouter>
       </div>

@@ -4,10 +4,11 @@ const items = require("../views/models/items");
 const user = require("../views/models/user");
 const orders = require("../views/models/orders");
 const productskeitems = require("../views/models/productskeitems");
+const auth =require('../middlewares/auth');
 
 // api to return list of items from items collection for page 2 of stepper form
 
-router.get("/stepperform", async (req, res, next) => {
+router.get("/stepperform", auth, async (req, res, next) => {
   await items
     .find({})
     .then(val => {
