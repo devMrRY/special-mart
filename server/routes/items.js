@@ -21,7 +21,7 @@ router.get("/stepperform", auth, async (req, res, next) => {
 
 // api to save products details for the first time that directly comes from stepper page 4
 
-router.post("/save", async (req, res, next) => {
+router.post("/save", auth, async (req, res, next) => {
   const { product_name, Itemlist, product_id } = req.body;
   const token = req.headers.authorization;
   const userdata = await user.findOne({ token });
@@ -71,7 +71,7 @@ router.post("/save", async (req, res, next) => {
 
 // api to return productlist from orders collection for dashboard
 
-router.get("/getproduct", async (req, res) => {
+router.get("/getproduct", auth, async (req, res) => {
   try {
     const token = req.headers.authorization;
     const data = await user.findOne({ token });
@@ -91,7 +91,7 @@ router.get("/getproduct", async (req, res) => {
   and it's items also.
 */
 
-router.get("/delete/:product_id", async (req, res) => {
+router.get("/delete/:product_id", auth, async (req, res) => {
   try {
     const token = req.headers.authorization;
     const id = req.params.product_id;
@@ -107,7 +107,7 @@ router.get("/delete/:product_id", async (req, res) => {
 
 // api to return product items after it is saved in mongodb;
 
-router.get("/edit_items/:product_id", async (req, res) => {
+router.get("/edit_items/:product_id", auth, async (req, res) => {
   try {
     const { product_id } = req.params;
     const product = await orders.findOne({ _id: product_id });
